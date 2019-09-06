@@ -107,8 +107,57 @@ const data = [
 
   Step 3: return the entire component.
 
-  Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
+  Step 4: Map over the data, creating a component for each object and add each component to the DOM as children of the 'articles' div.
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+
+function createComponent (content){
+
+  const newDiv = document.createElement('div')
+    newDiv.classList.add('article');
+  const newHeading = document.createElement('h2');
+  const dateParagraph = document.createElement('p');
+    dateParagraph.classList.add('date');
+  const paragraphOne = document.createElement('p');
+  const paragraphTwo = document.createElement('p');
+  const paragraphThree = document.createElement('p');
+  const newSpan = document.createElement('span');
+    newSpan.classList.add('expandButton');
+  const newButton = document.createElement('button');
+    newButton.classList.add('closeButton')
+
+
+  newHeading.textContent = content.newHeading;
+  dateParagraph.textContent = content.date;
+  paragraphOne.textContent = content.firstParagraph;
+  paragraphTwo.textContent = content.secondParagraph;
+  paragraphThree.textContent = content.thirdParagraph;
+
+  newSpan.addEventListener('click', () =>{
+    newDiv..classList.toggle('article-open');
+  })
+
+  button.addEventListener('click', () => {
+    articleDiv.classList.toggle('disappear');
+  })
+
+  newDiv.appendChild('newHeading');
+  newDiv.appendChild('dateParagraph');
+  newDiv.appendChild('paragraphOne');
+  newDiv.appendChild('paragraphTwo');
+  newDiv.appendChild('paragraphThree');
+  newDiv.appendChild('newspan');
+  newDiv.appendChild('button');
+
+  return newDiv;
+
+}
+
+htmlArticles = document.querySelector('.articles');
+
+const articles = data.map(content => {
+  htmlArticles.appendChild(articleMaker(content))
+});
